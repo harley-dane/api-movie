@@ -1,0 +1,18 @@
+:root {
+    --primary-color: #e00;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--js-yellow-color);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
