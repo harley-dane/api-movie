@@ -1,11 +1,7 @@
-// import loadEvent from './events/loadEvent.js';
-// import addItemEvent from './events/addItemEvent.js';
-// import clearAllEvent from './events/clearAllEvent.js';
+//data 
+const apiKey = "eb34b2"; 
 
-// loadEvent();
-// addItemEvent();
-// clearAllEvent();
-const apiKey = 'eb34b2'; // Replace with your OMDB API key
+// dom
 const searchInput = document.getElementById('searchInput');
 const movieResults = document.getElementById('movieResults');
 
@@ -18,7 +14,7 @@ async function searchMovies() {
     }
 
     try {
-        const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${query}`);
+        const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${query}`);
         const data = await response.json();
 
         if (data.Response === 'True') {

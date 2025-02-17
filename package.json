@@ -29,5 +29,9 @@
     "jest-environment-jsdom": "^29.6.1",
     "markdownlint-cli": "^0.28.1",
     "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "env": "^0.0.2"
   }
 }
