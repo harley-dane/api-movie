@@ -1,7 +1,4 @@
-//data 
-const apiKey = "eb34b2"; 
-
-// dom
+const apiKey = 'eb34b2'; 
 const searchInput = document.getElementById('searchInput');
 const movieResults = document.getElementById('movieResults');
 
