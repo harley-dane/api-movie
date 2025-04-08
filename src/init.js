@@ -1,12 +1,13 @@
-const apiKey = 'eb34b2'; 
-const searchInput = document.getElementById('searchInput');
-const movieResults = document.getElementById('movieResults');
+import  dom  from './dom.js';
 
-// Search movies function
-async function searchMovies() {
-    const query = searchInput.value.trim();
+
+const apiKey = 'eb34b2';// Ensure you have a valid API key
+
+
+const searchMovieIn = async () => {
+    const query = dom.searchInput.value.trim();
     if (!query) {
-        movieResults.innerHTML = '<p>Please enter a movie name.</p>';
+        dom.movieResults.innerHTML = '<p>Please enter a movie name.</p>';
         return;
     }
 
@@ -17,17 +18,21 @@ async function searchMovies() {
         if (data.Response === 'True') {
             displayMovies(data.Search);
         } else {
-            movieResults.innerHTML = `<p>No movies found for "${query}".</p>`;
+            dom.movieResults.innerHTML = `<p>No movies found for "${query}".</p>`;
         }
     } catch (error) {
-        movieResults.innerHTML = '<p>Error fetching movies. Please try again later.</p>';
+        dom.movieResults.innerHTML = '<p>Error fetching movies. Please try again later.</p>';
         console.error(error);
     }
 }
 
+
+
+// Search movies function
+ dom.searchMovies.addEventListener( 'click', searchMovieIn); 
 // Display movies in grid
 function displayMovies(movies) {
-    movieResults.innerHTML = ''; // Clear previous results
+    dom.movieResults.innerHTML = ''; // Clear previous results
     movies.forEach(movie => {
         const movieCard = document.createElement('div');
         movieCard.classList.add('movie-card');
@@ -37,12 +42,12 @@ function displayMovies(movies) {
             <h3>${movie.Title}</h3>
             <p>Year: ${movie.Year}</p>
         `;
-        movieResults.appendChild(movieCard);
+        dom.movieResults.appendChild(movieCard);
     });
 }
 
 // Allow search on Enter key press
-searchInput.addEventListener('keypress', (e) => {
+dom.searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         searchMovies();
     }
