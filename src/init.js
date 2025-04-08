@@ -1,7 +1,8 @@
 const apiKey = 'eb34b2'; 
 const dom = { 
     searchInput : document.getElementById('searchInput'),
-    movieResults : document.getElementById('movieResults')
+    movieResults : document.getElementById('movieResults'),
+    searchMovies : document.getElementById("searchMovies")
 }
 
 // Display movies in grid
@@ -21,28 +22,30 @@ const displayMovies = (movies) => {
 }
 
 // Search movies function
-const searchMovies = async () => {
-    const query = dom.searchInput.value.trim();
-    if (!query) {
-        dom.movieResults.innerHTML = '<p>Please enter a movie name.</p>';
-        return;
-    }
-
-    try {
-        const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${query}`);
-        const data = await response.json();
-
-        if (data.Response === 'True') {
-            displayMovies(data.Search);
-        } else {
-            dom.movieResults.innerHTML = `<p>No movies found for "${query}".</p>`;
+dom.searchMovies.addEventListener("click", 
+     async () => {
+        const query = dom.searchInput.value.trim();
+        if (!query) {
+            dom.movieResults.innerHTML = '<p>Please enter a movie name.</p>';
+            return;
         }
-        
-    } catch (error) {
-        dom.movieResults.innerHTML = '<p>Error fetching movies. Please try again later.</p>';
-        console.error(error);
+    
+        try {
+            const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${query}`);
+            const data = await response.json();
+    
+            if (data.Response === 'True') {
+                displayMovies(data.Search);
+            } else {
+                dom.movieResults.innerHTML = `<p>No movies found for "${query}".</p>`;
+            }
+            
+        } catch (error) {
+            dom.movieResults.innerHTML = '<p>Error fetching movies. Please try again later.</p>';
+            console.error(error);
+        }
     }
-}
+) 
 
 // Allow search on Enter key press
 dom.searchInput.addEventListener('keypress', (e) => {
