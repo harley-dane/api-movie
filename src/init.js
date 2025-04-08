@@ -1,11 +1,37 @@
-const apiKey = 'eb34b2'; 
-const dom = { 
-    searchInput : document.getElementById('searchInput'),
-    movieResults : document.getElementById('movieResults'),
-    searchMovies : document.getElementById("searchMovies")
-}
+import  dom  from './dom.js';
 
+
+const apiKey = 'eb34b2';// Ensure you have a valid API key
+
+
+const searchMovieIn = async () => {
+    const query = dom.searchInput.value.trim();
+    if (!query) {
+        dom.movieResults.innerHTML = '<p>Please enter a movie name.</p>';
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${query}`);
+        const data = await response.json();
+
+        if (data.Response === 'True') {
+            displayMovies(data.Search);
+        } else {
+            dom.movieResults.innerHTML = `<p>No movies found for "${query}".</p>`;
+        }
+    } catch (error) {
+        dom.movieResults.innerHTML = '<p>Error fetching movies. Please try again later.</p>';
+        console.error(error);
+    }
+
+
+
+
+// Search movies function
+ dom.searchMovies.addEventListener( 'click', searchMovieIn); 
 // Display movies in grid
+
 const displayMovies = (movies) => {
     dom.movieResults.innerHTML = ''; // Clear previous results
     movies.forEach(movie => {
