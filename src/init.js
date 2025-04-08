@@ -24,6 +24,7 @@ const searchMovieIn = async () => {
         dom.movieResults.innerHTML = '<p>Error fetching movies. Please try again later.</p>';
         console.error(error);
     }
+}
 
 
 
