@@ -49,6 +49,6 @@ function displayMovies(movies) {
 // Allow search on Enter key press
 dom.searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        searchMovies();
+        searchMovieIn();
     }
 });
