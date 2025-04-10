@@ -1,22 +1,5 @@
-const data = {
-    items: [
-        {
-            id: 1,
-            text: 'Buy vitamins',
-        },
-        {
-            id: 2,
-            text: 'Learn JavaScript',
-        },
-        {
-            id: 3,
-            text: 'Wash dishes',
-        },
-        {
-            id: 4,
-            text: 'Call mum',
-        },
-    ],
+const movieData = {
+    apiKey: 'eb34b2',
 };
 
-export default data;
+export default movieData;

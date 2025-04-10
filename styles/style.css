@@ -28,7 +28,6 @@ body {
     font-family: cursive;
     font-size: larger;
     color: antiquewhite;
-    
 }
 
 .container {
@@ -99,7 +98,7 @@ button:hover {
     font-size: 14px;
 }
 
-footer{
+footer {
     display: flex;
     justify-content: center;
     align-items: center;
