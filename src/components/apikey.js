@@ -1,4 +1,3 @@
-const apiKey = "eb34b2"; 
+const apiKey = 'eb34b2';
 
-
-export default apiKey
+export default apiKey;
