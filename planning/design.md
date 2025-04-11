@@ -1,3 +1,3 @@
 # Design
 
-![design](../assets/design.png)
+![design](./design.gif)

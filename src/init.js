@@ -77,5 +77,6 @@ dom.searchMovies.addEventListener('click', async () => {
 dom.searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         searchMovieIn();
+        movieHandler();
     }
 });
